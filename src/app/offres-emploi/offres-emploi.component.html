@@ -1,0 +1,13 @@
+<p>offres-emploi works!</p>
+<h2 class="center container">list Products</h2>
+search: <input type="text"[(ngModel)]="entrep">
+<button href="#" class="btn btn-primary" (click)="Bilan()" >Bilan {{nbr}}</button>
+<section *ngFor="let P of listEmploi">
+    <div *ngIf="P.entreprise == entrep ||!entrep" class="card" style="width: 18rem;">
+        <div>
+    <h5>{{P.title}}</h5>
+    <h5>{{P.entreprise}}</h5>
+    <button href="#" class="btn btn-primary" (click)="postuler()" [disabled]="P.etat==false">Postuler</button>
+</div>
+</div>
+</section>
