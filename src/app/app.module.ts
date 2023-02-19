@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { ArticlesComponentComponent } from './articles-component/articles-component.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OffresEmploiComponent,
-    ArticlesComponentComponent
+    ArticlesComponentComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,

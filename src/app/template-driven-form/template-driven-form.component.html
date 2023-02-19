@@ -1,0 +1,64 @@
+
+<form #addform="ngForm" (ngSubmit)="addForm(addform)">
+<fieldset>
+    
+    <legend>Informations generales </legend>
+    <table>
+        <tr>
+    <label>Nom</label>
+    <td>
+    <input type="text" name="Nom" ngModel required #Nom="ngModel">
+    <span *ngIf="Nom.invalid && Nom.touched" style="color:red">Nom is required</span>
+    <br>
+</td>
+<tr>
+    <label>Email</label>
+    <td>
+    <input type="text" name="Email" ngModel required #Email="ngModel" pattern="[a-zA-Z0-9._%+-]+[.]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]{3}">
+    <span *ngIf="Email?.errors?.['required'] && Email.touched" style="color:red">Email is required</span>
+    <span *ngIf="Email?.errors?.['pattern'] && Email.touched" style="color:blue">la forme est : xxxxxx.yyyyyy@zzz </span>
+    <br>
+</td>
+</tr>
+</table>
+    <fieldset>
+        <legend>Information de payement</legend>  
+        <table>
+            <tr>
+        <label >Type de carte</label>
+        <td>
+        <input type="text" name="Type" ngModel required #Type="ngModel">
+        <span *ngIf="Type.invalid && Type.touched" style="color:red"> Type de carte is required</span>
+        <br>
+    </td>
+    </tr>
+    <tr>
+        <label>Numero carte</label>
+        <td>
+        <input type="text" name="Numero" ngModel required pattern="[0-9]{16}" #Numero="ngModel">
+        <span *ngIf="Numero?.errors?.['required'] && Numero.touched" style="color:red">Numero is required</span>
+        <span *ngIf="Numero?.errors?.['pattern'] && Numero.touched" style="color:blue">max of Numero is 16 </span>
+        <br>
+        </td>
+    </tr>
+    <tr>
+        <label>Date expiration</label>
+        <td>
+        <input type="text" name="Date" ngModel required #Date="ngModel">
+        <span *ngIf="Date.invalid && Date.touched" style="color:red"> Date d'expiration is required</span>
+        <br>
+        </td>
+    </tr>
+    <tr>
+        <label>Code</label>
+        <td>
+        <input type="text" name="code" [disabled]="Type.invalid || Date.invalid || Numero.invalid ">
+        <br>
+        </td>
+    </tr>
+    </table>
+    </fieldset>
+    <br>
+<button  class="btn btn-primary" type="submit"[disabled]="addform.invalid" >Ajouter</button>
+</fieldset>
+</form>
